@@ -1,0 +1,227 @@
+div.cover {
+    /* Fondo portada*/
+    height: 400px;
+    background-image: url(/recursos/img1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    /*Funcion par darle opacidad a la imagen de fondo segun la transparencia del background-color*/
+    background-color: rgba(0, 0, 0, 0.314);
+    /*Titulo*/
+    color: rgb(176, 212, 206);
+    text-align: center;
+    padding: 150px;
+    font-family: 'Roboto';
+    font-size: larger;
+    text-shadow: 4px 2px 2px rgba(117, 122, 108, 0.384);
+
+}
+
+body {
+    height: 1000px;
+    background-size: cover;
+    background-image: url(/recursos/fondo.jpg);
+}
+
+.nav-item:hover {
+    opacity: .5;
+}
+
+.container-fluid {
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+.menu {
+    list-style-type: none;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 15px;
+    margin: 5px;
+    background-color: #0c1fee;
+    border-radius: 5px;
+    justify-content: flex-start;
+}
+
+.menu li:hover {
+    background-color: rgb(115, 112, 131);
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    margin-bottom: 5em;
+    margin-top: 3em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 18em;
+    margin-bottom: 1em;
+    box-shadow: 6px 6px 6px rgb(133, 131, 131);
+}
+
+.card-img-top {
+    height: 235px;
+}
+
+.form-group {
+    flex: fill;
+    display: inline-block;
+
+}
+
+.row {
+    display: inline-block;
+}
+
+/* Footer */
+:root {
+    --gray2: rgb(88, 92, 90);
+    --blue: #00285f;
+    --gray: #ededed;
+  }
+footer {
+    width: 100%;
+    height: 250px;
+}
+
+footer .main {
+    width: 100%;
+    height: 200px;
+    background: var(--orange);
+    padding: 20px 10px;
+}
+
+.footer-links {
+    max-width: 1000px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer-company,
+.footer-rental,
+.footer-contact,
+.footer-social {
+    color: white;
+    height: 100%;
+    min-height: 100px;
+}
+
+.footer-links h4 {
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    margin-bottom: 8px;
+}
+
+.main .footer-social img {
+    width: 32px;
+    height: 32px;
+}
+
+footer .last {
+    width: 100%;
+    height: 50px;
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 576px) {
+    nav ul li {
+        display: none;
+    }
+
+    .header-block img {
+        width: 70%;
+        position: absolute;
+        right: 16%;
+        top: 30%;
+    }
+
+    .header-block .text {
+        position: absolute;
+        bottom: 10%;
+        left: 15;
+    }
+
+    section .filter-card {
+        width: 390px;
+        padding: 0px 10px;
+    }
+
+    .search-input {
+        max-width: 700px;
+        min-width: 240px;
+    }
+
+    .search-button {
+        max-width: 150px;
+        min-width: 80px;
+    }
+
+    .about {
+        margin-top: 100px;
+    }
+
+    .title-wrapper-about {
+        margin-bottom: 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 90%;
+    }
+
+    .right p {
+        width: 100%;
+        margin: 0px;
+        text-align: left;
+    }
+
+    .features {
+        height: 100%;
+    }
+
+    .feature-card-block {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        height: 100%;
+    }
+
+    footer .main {
+        height: 100%;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        padding-left: 10%;
+    }
+}

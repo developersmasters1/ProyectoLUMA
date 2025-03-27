@@ -1,0 +1,60 @@
+html{
+    background-size: cover;
+  }
+  body{
+    background-image: url(/recursos/fondo.jpg);
+    font-family: 'arial';
+    font-size:16pt;
+  }
+
+  input{
+    width: 100%;
+    background-color: #24303c;;
+    /*display: inline-block;*/
+    border-radius: 4px;
+    height: 40px;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+    border: 1px solid #1f53c5;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+  }
+  .div1 {
+    margin-top: 60px;
+    border-radius: 8px;
+    font-family: 'calibri';
+    padding: 30px;
+    padding-top:30px;
+    background-color: #24303c;;
+    color:white;
+    width:400px;
+    height:450px;
+    box-shadow: 7px 13px 37px #000;
+  }
+
+  .div1 h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .boton{
+    margin-top: 20px;
+    font-size: 18pt;
+    display: inline-block;
+    border:0;
+    height:40px;
+    width: 100%;
+    color:white;
+    background-color:rgb(74, 141, 228);
+    transition-duration: 0.15s;
+  }
+  
+  .boton:hover{
+    transform:scale(1.05);
+    background-color: rgb(106, 174, 161);
+  }
+  .boton:active{
+    background-color: rgb(100, 143, 224);
+  }
