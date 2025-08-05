@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    body {
+      background: linear-gradient(180deg, #0000008c 0%, #3838388c 100%), url("../Imagenes/recursos/img1.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .card {
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 6px 32px 0 rgba(25, 135, 84, 0.10), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+      padding: 2rem 2rem;
+    }
+
+    .form-icon, .input-group-text {
+      width: 2.5rem;
+      text-align: center;
+      color: #198754;
+      background: #e9f7ef;
+      border: none;
+      font-size: 1.1rem;
+    }
+
+    .form-control:focus {
+      border-color: #198754;
+      box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+    }
+
+    .nav__logo {
+      margin-bottom: 1rem;
+    }
+
+    .nav__title {
+      margin: 0;
+    }
+  
+    /* Botones principales */
+    .cta,
+    .btn-primary,
+    .btn-success {
+      display: flex;
+      align-items: center;
+      background-color: #38c48d !important;
+      color: #fff !important;
+      text-decoration: none;
+      padding: 10px 0;
+      border-radius: 10px !important; 
+      margin-bottom: 20px;
+      justify-content: center;
+      border: #38c48d !important;
+      font-weight: 600;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(56, 196, 141, 0.10);
+    }
+    
+    .cta:hover,
+    .btn-primary:hover,
+    .btn-success:hover,
+    .cta:focus,
+    .btn-primary:focus,
+    .btn-success:focus {
+      background-color: #2fa877 !important; 
+      color: #fff !important;
+      box-shadow: 0 4px 16px rgba(56, 196, 141, 0.18);
+    }
+
+    /* Enlaces */
+    a.text-success {
+      color: #38c48d !important;
+      transition: color 0.2s;
+    }
+
+    a.text-success:hover,
+    a.text-success:focus {
+      color: #157347 !important;
+      text-decoration: underline;
+    }
+
+    /* Mensaje de advertencia */
+    .warnings {
+      font-size: 0.98rem;
+      min-height: 1.5em;
+    }
+
+    /* Responsive para la tarjeta */
+    @media (max-width: 500px) {
+      .card {
+        padding: 1.5rem 0.8rem;
+      }
+      .title {
+        font-size: 1.3rem;
+      }
+    }

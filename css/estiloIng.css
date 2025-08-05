@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* Fondo general */
+body.bg-light {
+      background: rgba(0, 0, 0, 0.08);
+      background: linear-gradient(180deg, #0000008c 0%, #3838388c 100%), url("../Imagenes/recursos/img1.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+}
+
+/* Logo */
+.nav__logo img {
+    filter: drop-shadow(0 2px 8px rgba(25, 135, 84, 0.10));
+}
+
+/* Título principal */
+.title {
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+/* Tarjeta de ingreso */
+.card {
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 6px 32px 0 rgba(25, 135, 84, 0.10), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+}
+
+/* Input y grupo de input */
+.input-group-text {
+    background: #e9f7ef;
+    color: #198754;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.form-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+/* Botón principal */
+.btn-success {
+    background: #38c48d;
+    border: none;
+    transition: background 0.2s;
+}
+
+.btn-success:hover, .btn-success:focus {
+    background:  #4be3ac;
+    box-shadow: 0 2px 8px rgba(56, 196, 141, 0.15);
+}
+/* Enlaces */
+a.text-success {
+    transition: color 0.2s;
+}
+
+a.text-success:hover, a.text-success:focus {
+    color: #157347;
+    text-decoration: underline;
+}
+
+/* Mensaje de advertencia */
+.warnings {
+    font-size: 0.98rem;
+    min-height: 1.5em;
+}
+
+/* Responsive para la tarjeta */
+@media (max-width: 500px) {
+    .card {
+        padding: 1.5rem 0.8rem;
+    }
+    .title {
+        font-size: 1.3rem;
+    }
+}
