@@ -15,8 +15,8 @@ const db = mysql.createConnection({
 
 // Metodo post para registrar un comprador.  Este endpoint permite registrar un nuevo comprador en la base de datos
 app.post('/registrar', (req, res) => {
-    const nombre = req.body.nombre;
-    const apellido = req.body.apellido; 
+    const nombres = req.body.nombre;
+    const apellidos = req.body.apellido; 
     const tipoDocumento = req.body.tipoDocumento;
     const numeroDocumento = req.body.numeroDocumento;
     const fechaNacimiento = req.body.fechaNacimiento;
@@ -29,7 +29,7 @@ app.post('/registrar', (req, res) => {
     // Inserta los todos los datos del comprador en la base de datos
     // Utiliza una consulta SQL para insertar los datos en la tabla 'comprador'
     db.query('INSERT INTO comprador (nombres, apellidos, tipo_documento, numero_documento, fecha_nacimiento, correo, contraseña, departamento, ciudad, direccion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-        [nombre, apellido, tipoDocumento, numeroDocumento, fechaNacimiento, correo, password, departamento, ciudad, direccion],
+        [nombres, apellidos, tipoDocumento, numeroDocumento, fechaNacimiento, correo, password, departamento, ciudad, direccion],
         (error, result) => {
             if (error) {
                 console.log("Error al registrar el comprador: ", error);
@@ -54,13 +54,13 @@ app.get('/compradores', (req, res) => {
 });
 
 // Metodo put para actualizar un comprador.  Este endpoint permite actualizar los datos de un comprador en la base de datos
-/*app.put('/actualizar', (req, res) => {
+app.put('/actualizar', (req, res) => {
     const id = req.body.id;
-    const nombre = req.body.nombre;
-    const apellido = req.body.apellido; 
-    const tipoDocumento = req.body.tipoDocumento;
-    const numeroDocumento = req.body.numeroDocumento;
-    const fechaNacimiento = req.body.fechaNacimiento;
+    const nombres = req.body.nombres;
+    const apellidos = req.body.apellidos; 
+    const tipo_documento = req.body.tipo_documento;
+    const numero_documento = req.body.numero_documento;
+    const fecha_nacimiento = req.body.fecha_nacimiento;
     const correo = req.body.correo;
     const password = req.body.password;
     const departamento = req.body.departamento;
@@ -68,17 +68,17 @@ app.get('/compradores', (req, res) => {
     const direccion = req.body.direccion;
 
     // Inserta los todos los datos del comprador en la base de datos.  Utiliza una consulta SQL para insertar los datos en la tabla 'comprador'
-    db.query('UPDATE comprador SET nombres=?, apellidos=?, tipo_documento=?, numero_documento=?, fecha_nacimiento=?, correo=?, contraseña=?, departamento=?, ciudad=?, direccion=?) WHERE id=?', 
-        [nombre, apellido, tipoDocumento, numeroDocumento, fechaNacimiento, correo, password, departamento, ciudad, direccion, id],
+    db.query('UPDATE comprador SET nombres=?, apellidos=?, tipo_documento=?, numero_documento=?, fecha_nacimiento=?, correo=?, contraseña=?, departamento=?, ciudad=?, direccion=? WHERE id=?', 
+        [nombres, apellidos, tipo_documento, numero_documento, fecha_nacimiento, correo, password, departamento, ciudad, direccion, id],
         (error, result) => {
             if (error) {
-                console.log("Error al registrar el comprador: ", error);
+                console.log("Error al actualizar el comprador: ", error);
             }else {
             res.send('Comprador ACTUALIZADO exitosamente');
             }
         }
     );
-});*/
+});
 
 app.listen(3001, () => {
     console.log('Servidor corriendo en el puerto 3001');
