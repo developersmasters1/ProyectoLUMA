@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
-
+// Configura Express para usar CORS y JSON en las solicitudes HTTP (MIDDLEWARES)
 app.use(cors());
 app.use(express.json());
-
+// Configura la conexión a la base de datos MySQL
 const db = mysql.createConnection({
     host: 'localhost',
     user:  'root',
@@ -13,6 +13,29 @@ const db = mysql.createConnection({
     database: 'ecommerce'
 });
 
+//------------------- LOGIN USUARIOS POR ROL -------------------
+// Metodo post para el login de usuarios por rol.  Este endpoint permite autenticar a un usuario en función de su rol (administrador, vendedor o comprador)
+app.post('/login', (req, res) => {
+const { correo, password } = req.body;
+db.query(
+    'SELECT id, nombres, apellidos, id_rol FROM comprador WHERE correo=? AND contraseña=?',
+    [correo, password],
+    (err, results) => {
+    if (err) return res.status(500).json({ error: 'Error en el servidor' });
+    if (results.length === 0) return res.status(401).json({ error: 'Credenciales incorrectas' });
+      // Devuelve el usuario y su rol
+    res.json({
+        id: results[0].id,
+        nombres: results[0].nombres,
+        apellidos: results[0].apellidos,
+        id_rol: results[0].id_rol,
+        correo: results[0].correo
+    });
+    }
+);
+});
+
+//------------------- CRUD COMPRADORES -------------------
 // Metodo post para registrar un comprador.  Este endpoint permite registrar un nuevo comprador en la base de datos
 app.post('/registrar', (req, res) => {
     const nombres = req.body.nombre;
@@ -96,8 +119,7 @@ app.delete('/eliminar/:id', (req, res) => {
     );
 });
 
-// ------------------- CRUD PRODUCTOS -------------------
-
+/* ------------------- CRUD PRODUCTOS -------------------
 // Crear producto (POST)
 app.post('/productos', (req, res) => {
     const { referencia, nombre, valor } = req.body;
@@ -156,8 +178,8 @@ app.delete('/productos/:id', (req, res) => {
         res.send({ mensaje: 'Producto ELIMINADO exitosamente' });
     });
 });
-
+*/
 
 app.listen(3001, () => {
-    console.log('Servidor corriendo en el puerto 3001');
+    console.log('Servidor corriendo en el puerto 3001...');
 });
