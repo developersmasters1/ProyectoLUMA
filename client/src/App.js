@@ -5,25 +5,35 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Swal from 'sweetalert2';
 import Login from "./Login";
 
+
 function Principal({ usuario, onLogout }) {
   return (
-    <div className="container mt-5">
-      <div className="card text-center">
-        <div className="card-header bg-primary text-white">
-          Bienvenido a LUMA
-        </div>
-        <div className="card-body">
-          <h3 className="card-title">¡Hola, {usuario.nombres}!</h3>
-          <p className="card-text">
-            Gracias por ser parte de nuestra comunidad de compradores.<br />
-            Aquí podrás consultar tus compras, ver productos destacados y mucho más.
-          </p>
-          <button className="btn btn-outline-danger" onClick={onLogout}>
-            Cerrar sesión
-          </button>
-        </div>
-        <div className="card-footer text-muted">
-          Tu rol: <b>{usuario.id_rol}</b>
+    <div className="login-bg">
+      <header className="login-header">
+        <a href="/">
+          <img src="favicon-32x32.png" alt="lumalogo" className="login-logo" />
+        </a>
+        <h1 className="login-title">Ingreso de Usuarios</h1>
+        <hr className="login-hr" />
+      </header>
+      <div className="container mt-5">
+        <div className="card text-center">
+          <div className="card-header bg-primary text-white">
+            Bienvenido a LUMA
+          </div>
+          <div className="card-body">
+            <h3 className="card-title">¡Hola, {usuario.nombres}!</h3>
+            <p className="card-text">
+              Gracias por ser parte de nuestra comunidad de compradores.<br />
+              Aquí podrás consultar tus compras, ver productos destacados y mucho más.
+            </p>
+            <button className="btn btn-outline-danger" onClick={onLogout}>
+              Cerrar sesión
+            </button>
+          </div>
+          <div className="card-footer text-muted">
+            Tu rol: <b>{usuario.id_rol}</b>
+          </div>
         </div>
       </div>
     </div>
@@ -78,6 +88,17 @@ function App() {
   useEffect(() => {
     if (usuario && (usuario.id_rol === 1 || usuario.id_rol === 2)) {
       getCompradores();
+    if (!usuario) return;
+    const timer = setTimeout(() => {
+      setUsuario(null);
+      Swal.fire({
+        title: "Sesión cerrada",
+        text: "Por seguridad, tu sesión ha sido cerrada automáticamente.",
+        icon: "info",
+        confirmButtonText: "Aceptar"
+      });
+      }, 600000); // 10 minutos
+    return () => clearTimeout(timer); // Limpia el timer si el usuario cambia o cierra sesión antes
     }
   }, [usuario]);
 
@@ -221,12 +242,13 @@ function App() {
 };
   // Renderizado del formulario de registro con los campos necesarios -------------------------------
   return (
+    <div className="login-bg">
     <div className="container mt-5">
       <h2>Bienvenido a LUMA</h2>
       <h5>Gestion Empresarial de Compradores</h5>
       <p>Hola {usuario.nombres}, tu rol {usuario.id_rol} es <b>{obtenerNombreRol(usuario.id_rol)}</b></p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button className="btn btn-outline-danger" onClick={() => setUsuario(null)}>Cerrar sesión</button>
+        <button className="btn btn-outline-danger" onClick={() => setUsuario(null)}>Cerrar sesión</button>
       </div> 
       <div className="card text-center">
         <div className="card-header">GESTION DE COMPRADORES</div>
@@ -443,6 +465,7 @@ function App() {
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

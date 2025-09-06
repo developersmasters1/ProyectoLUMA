@@ -183,3 +183,5 @@ app.delete('/productos/:id', (req, res) => {
 app.listen(3001, () => {
     console.log('Servidor corriendo en el puerto 3001...');
 });
+
+module.exports = app;

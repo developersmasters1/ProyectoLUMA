@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.login-bg {
+  min-height: 100vh;
+  background: #f8f9fa url('img1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Poppins', sans-serif;
+}
+.login-header {
+  width: 100%;
+  max-width: 500px;
+  margin: 2.5rem auto 0 auto;
+  text-align: center;
+}
+.login-logo {
+  width: 120px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #198754;
+  margin-bottom: 0.5rem;
+}
