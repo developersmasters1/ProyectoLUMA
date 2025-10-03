@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
+const path = require('path');
 // Configura Express para usar CORS y JSON en las solicitudes HTTP (MIDDLEWARES)
 app.use(cors());
 app.use(express.json());
@@ -118,7 +119,6 @@ app.delete('/eliminar/:id', (req, res) => {
         }
     );
 });
-
 /* ------------------- CRUD PRODUCTOS -------------------
 // Crear producto (POST)
 app.post('/productos', (req, res) => {
@@ -180,6 +180,15 @@ app.delete('/productos/:id', (req, res) => {
 });
 */
 
+//-------------- METODO PARA INTEGRAR FRONTEND Y BACKEND -------------------
+// Servir archivos estáticos desde el directorio 'client/build' en el PC del cliente
+/*app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});*/
+
+// Inicia el servidor en el puerto 3001
 app.listen(3001, () => {
     console.log('Servidor corriendo en el puerto 3001...');
 });
