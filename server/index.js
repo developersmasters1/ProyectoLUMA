@@ -8,11 +8,17 @@ app.use(cors());
 app.use(express.json());
 // Configura la conexión a la base de datos MySQL
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+});
+/*    host: 'localhost',
     user:  'root',
     password: '901019Fn.',
     database: 'ecommerce'
-});
+});*/
 
 //------------------- LOGIN USUARIOS POR ROL -------------------
 // Metodo post para el login de usuarios por rol.  Este endpoint permite autenticar a un usuario en función de su rol (administrador, vendedor o comprador)
@@ -189,8 +195,9 @@ app.get('*', (req, res) => {
 });*/
 
 // Inicia el servidor en el puerto 3001
-app.listen(3001, () => {
-    console.log('Servidor corriendo en el puerto 3001...');
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}...`);
 });
 
 module.exports = app;
